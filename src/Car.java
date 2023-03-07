@@ -1,4 +1,5 @@
 import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -8,12 +9,24 @@ public class Car {
     private String brand; //atrybut prosty
     private String color;
     int wheelsSize;
+    private static int minPrice = 20000; //atrybut klasowy
+    private int price;
+    private String seatsNumber; // atrybut opcjonalny - może być null
+    private LocalDate dateOfCreate; //atrybut zlozony
+    private ArrayList<String> externalAccesories; //atrybut powtarzalny
 
     public Car(String brand, String color, int wheelsSize) {
         this.brand = brand;
         this.color = color;
         this.wheelsSize = wheelsSize;
         addCar(this);
+    }
+    public int setPrice(){ //atrybut wyliczalny
+        return minPrice + 1000;
+    }
+
+    public int setPricePlus(int customerPrice){ //przeciązenie
+        return minPrice + 1000 + customerPrice;
     }
 
     @Override
