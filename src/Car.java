@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 
 public class Car {
-    private String brand;
+    private String brand; //atrybut prosty
     private String color;
     int wheelsSize;
 
@@ -31,7 +31,7 @@ public class Car {
         extent.remove(car);
     }
 
-    public static void showExtent(){
+    public static void showExtent(){ //metoda klasowa
         System.out.println("Extent of the class: " + Car.class.getName());
 
         for(Car car : extent){
