@@ -6,14 +6,16 @@ import java.util.Scanner;
 
 
 public class Car {
-    private String brand; //atrybut prosty
+    private String brand;
     private String color;
-    int wheelsSize;
+    int wheelsSize; //atrybut prosty
     private static int minPrice = 20000; //atrybut klasowy
-    private int price;
     private String seatsNumber; // atrybut opcjonalny - może być null
     private LocalDate dateOfCreate; //atrybut zlozony
     private ArrayList<String> externalAccesories; //atrybut powtarzalny
+    private int price; //atrybut pochodny - wyliczany z metody setPrice
+
+    private String description;
 
     public Car(String brand, String color, int wheelsSize) {
         this.brand = brand;
@@ -21,12 +23,22 @@ public class Car {
         this.wheelsSize = wheelsSize;
         addCar(this);
     }
-    public int setPrice(){ //atrybut wyliczalny
-        return minPrice + 1000;
+
+    public void setPrice(int cena){ //metoda wyliczajaca atrybut price
+        price = minPrice+cena;
     }
 
-    public int setPricePlus(int customerPrice){ //przeciązenie
-        return minPrice + 1000 + customerPrice;
+
+    public void setDesc(){
+        description = "fast desc";
+    }
+
+    public void setDesc(String add){
+        description = description + add;
+    }
+    //przeciazenie
+    public void setDesc(String add, String ad2){
+        description = "fast desc" + add + ad2;
     }
 
     @Override
